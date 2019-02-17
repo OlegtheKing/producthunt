@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- {% load staticfiles %}  loading static files -->
+{% load staticfiles %}
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
@@ -51,6 +51,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
+                    <a href="{% url 'create' %}">
+                        <img src="{% static 'plus.jpg' %}" class="d-inline-block align-top" height=33 width=33 />
+                    </a>
                     <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                     <form id="logout" method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}
