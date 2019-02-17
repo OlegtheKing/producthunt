@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "base.html" %}  <!-- kindof templates inheritance -->
+
+{% block content %}
+
+<h1> Log In </h1>
+
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %} <!-- a little bit of defence here -->
+    Username:
+    <br />
+    <input type="text" name="username" />  {% if nameerror %} <i style="color:red"> {{ nameerror }} </i> {% endif %}
+    <br />
+    Password:
+    <br />
+    <input type="password" name="password" /> {% if passerror %} <i style="color:red"> {{ passerror }} </i> {% endif %}
+    <br />
+    <br />
+    <input class="btn btn-primary" type="submit" value="Log in" />
+    <br />
+</form>
+
+{% endblock %}
+</body>
+</html>
