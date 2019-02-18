@@ -2,12 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> PHunt </title>
 </head>
 <body>
 {% extends "base.html" %}  <!-- kindof templates inheritance -->
 
 {% block content %}
+
+{% for product in products.all %}
+<div class="row pt-5">
+    <div class="col-3" onclick="window.location='{{ product.icon.url }}'" style="cursor: pointer;">
+         <img src="{{ product.icon.url }}" class="img-fluid" />
+    </div>
+    <div class="col-6">
+        <a href="{% url 'detail' product.id %}">
+            <h1> {{ product.title }} </h1>
+        </a>
+        <p> {{ product.summary }} </p>
+    </div>
+    <div class="col-3">
+        <div class="container" style="background-color: steelblue; border-radius: 10px; " >
+            <h3>
+                 Votes total: {{ product.votes_total }}
+            </h3>
+        </div>
+    </div>
+
+     <form id="upvote {{ product.id }}" method="POST" action="{% url 'upvote' product.id %}">
+        {% csrf_token %}
+        <input type="hidden" />
+    </form>
+</div>
+{% endfor %}
+
 {% endblock %}
 
 </body>

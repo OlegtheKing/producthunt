@@ -7,7 +7,7 @@
     <meta content="" name="description">
     <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
     <meta content="Jekyll v3.8.5" name="generator">
-    <title>PH clone</title>
+    <title>PHunt</title>
 
     <link href="https://getbootstrap.com/docs/4.3/examples/album/" rel="canonical">
 
@@ -52,7 +52,7 @@
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
                     <a href="{% url 'create' %}">
-                        <img src="{% static 'plus.jpg' %}" class="d-inline-block align-top" height=33 width=33 />
+                        <img src="{% static 'plus.jpg' %}" class="d-inline-block align-top" height=33 width=33 style=""/>
                     </a>
                     <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                     <form id="logout" method="POST" action="{% url 'logout' %}">

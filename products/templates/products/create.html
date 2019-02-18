@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Post</title>
 </head>
 <body>
 {% extends "base.html" %}  <!-- kindof templates inheritance -->
@@ -15,15 +15,16 @@
     {% csrf_token %} <!-- a little bit of defence here -->
     Title:
     <br />
-    <input type="text" name="title" />
+    <input type="text" name="title" size=50/>
     <br />
     Text:
     <br />
-    <input type="textbox" name="body" />
+    <!-- <textarea name="body" cols=51 rows=8> </textarea> -->
+    <input type="textbox" name="body" size=50/>
     <br />
     URL:
     <br />
-    <input type="text" name="url" />
+    <input type="text" name="url" size=50 />
     <br />
     Icon:
     <br />
